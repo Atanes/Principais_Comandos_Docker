@@ -3,8 +3,7 @@ Listagem dos principais comandos do Docker
 
 docker ps  
 docker ps -a  
-docker run hello-world  
-docker images  
+docker run hello-world   
 docker run -it ubuntu bash  
 docker start stoic_dirac  
 docker stop 3c80eaaf7cd5  
@@ -24,3 +23,6 @@ docker run --name nginx -d --mount type=volume,source=meuvolume,target=/app ngin
 docker inspect meuvolume  
 docker volume ls  
 docker volume prune  
+
+docker images 
+docker rmi imagem:tag  
