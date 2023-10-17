@@ -23,6 +23,9 @@ docker rm $(docker ps -a -q) -f
   - Remove todos os containers ativos pelos seus ids
 
 docker run -d --name nginx -p 8080:80 nginx  
+docker run --rm -d --name nginx --network host nginx  
+  - Conecta o host do docker com a máquina, dessa forma após o comando você consegue acessar a aplicação direto pelo localhost;
+  - Esse comando não funciona no MAC OS.
 docker exec nginx ls  
 docker exec -it nginx bash  
 docker run -d --name nginx -p 8080:80 -v ~/my-project/:/usr/share/nginx/html nginx  
