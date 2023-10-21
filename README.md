@@ -40,3 +40,12 @@ docker volume prune
 
 docker images 
 docker rmi imagem:tag  
+
+**Para WSL2 usar docker compose no lugar de docker-compose**  
+docker compose up  
+docker compose up -d --build  
+docker compose down
+
+docker logs db  
+
+
