@@ -41,6 +41,9 @@ docker volume prune
 docker images 
 docker rmi imagem:tag  
 
+Com arquivo Dockerfile no mesmo diretório onde estamos rodando os comandos  
+docker build -t teste_go . 
+
 **Para WSL2 usar docker compose no lugar de docker-compose**  
 docker compose up  
 docker compose up -d --build  
