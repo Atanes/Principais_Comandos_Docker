@@ -1,5 +1,49 @@
 # Principais_Comandos_Docker
-Listagem dos principais comandos do Docker
+
+## Comandos básicos
+Para utilizarmos o Docker é preciso conhecer alguns comandos e entender de forma clara e objetiva como funcionam e para que servem, nesse repositório vamos ver alguns desses comendos junto com alguns exemplos de utilização para facilitar seu entendimento e aplicação. 🤔
+
+## Executando um container
+Um container só pode ser iniciado a partir de uma imagem e por isso temos alguns comandos do Docker que podemos usar para listar, pegar e atualizar essas imagens.  
+Para listar as imagens que você tem na máquina é só executar o comando abaixo:
+
+`docker image list`  
+Uma lista com as imagens presentes na sua máquina é apresentada na tela indicando que elas foram criadas e ou baixadas do Docker host em algum momento.  
+Caso deseje atualizar alguma dessas imagens você pode utilizar o comando:  
+
+`docker image pull node`  
+Nesse caso estou solicitando ao Docker que atualize a imagem do node que tenho na minha máquina com as ultima versão existente no Docker hub. Para atualizar qualquer outra imagem é só mudar o nome da imagem que deseja atualizar no final do comando.
+
+Se desejar inspecionar a imagem que acabou de atualizar, basta usar o comando:  
+
+`docker image inspect node`  
+A diretiva **inspect** nesse comando é responsável por informar todos os dados referentes à imagem.
+
+Agora com a imagem atualizada e inspecionada, podemos iniciar o container com o comando:  
+
+`docker container run -it --rm --name node_test node bash`  
+Vamos tentar entender melhor cada parte desse comando e como ele funciona efetivamente.  
+
+Estrutura base: `docker container run <parâmetros> <imagem> <CMD> <argumentos>`  
+Os parâmetros mais utilizados na execução do container são:
+
+| Parâmetro |	Aplicação / Utilização                                                    |
+|-----------|---------------------------------------------------------------------------|
+| -d        | Execução do container em background                                       |
+| -i        | Modo interativo. Mantém o STDIN aberto mesmo sem console anexado          |
+| -t        | Aloca uma pseudo TTY                                                      |
+| --rm      | Automaticamente remove o container após finalização (Não funciona com -d) |
+| --name	  | Dar um nome para o container                                              |
+| -v	      | Mapeamento de volume                                                      |
+| -p	      | Mapeamento de porta                                                       |
+| -m	      | Limitar o uso de memória RAM                                              |
+| -c	      | Balancear o uso de CPU                                                    |
+
+Sendo assim quando olhamos para o comando anterior `docker container run -it --rm --name node_test node bash` vamos entender que um container com o nome **node_test** será iniciado e terá como base de craição a imagem **node** e o **bash** será executado no container ao final da sua construção e execução.  
+
+Caso o **CMD** não seja especificado no comando `docker container run`, é utilizado o valor padrão definido no Dockerfile da imagem utilizada. No nosso caso é node e seu comando padrão executa o node, ou seja, se não fosse especificado o bash, no final do comando de exemplo acima, ao invés de um shell bash do GNU/Linux, seria exibido um shell do node.  
+
+## Listagem dos principais comandos do Docker
 
 docker ps  
 docker ps -a  
